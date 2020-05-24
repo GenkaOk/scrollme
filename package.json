@@ -1,5 +1,5 @@
 {
-    "name": "scrollme",
+    "name": "@genkaok/scrollme",
     "title": "ScrollMe",
     "description": "A jQuery plugin for adding simple scrolling effects to web pages.",
     "keywords": [
@@ -11,6 +11,12 @@
         "name": "Nick Pearson",
         "url": "http://nckprsn.com"
     },
+    "contributors": [
+        {
+            "name": "GenkaOk",
+            "url": "https://github.com/genkaok"
+        }
+    ],
     "licenses": [
         {
             "type": "GPLv3",
