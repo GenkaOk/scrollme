@@ -30,19 +30,19 @@ var scrollme = ( function( $ )
 	_this.elements_in_view = [];
 
 	_this.property_defaults =
-	{
-		'opacity' : 1,
-		'translatex' : 0,
-		'translatey' : 0,
-		'translatez' : 0,
-		'rotatex' : 0,
-		'rotatey' : 0,
-		'rotatez' : 0,
-		'scale' : 1,
-		'scalex' : 1,
-		'scaley' : 1,
-		'scalez' : 1
-	};
+		{
+			'opacity' : 1,
+			'translatex' : 0,
+			'translatey' : 0,
+			'translatez' : 0,
+			'rotatex' : 0,
+			'rotatey' : 0,
+			'rotatez' : 0,
+			'scale' : 1,
+			'scalex' : 1,
+			'scaley' : 1,
+			'scalez' : 1
+		};
 
 	_this.scrollme_selector = '.scrollme';
 	_this.animateme_selector = '.animateme';
@@ -52,45 +52,45 @@ var scrollme = ( function( $ )
 	// Easing functions
 
 	_this.easing_functions =
-	{
-		'linear' : function( x )
 		{
-			return x;
-		},
-
-		'easeout' : function( x )
-		{
-			return x * x * x;
-		},
-
-		'easein' : function( x )
-		{
-			x = 1 - x;
-			return 1 - ( x * x * x );
-		},
-
-		'easeinout' : function( x )
-		{
-			if( x < 0.5 )
+			'linear' : function( x )
 			{
-				return ( 4 * x * x * x );
-			}
-			else
+				return x;
+			},
+
+			'easeout' : function( x )
+			{
+				return x * x * x;
+			},
+
+			'easein' : function( x )
 			{
 				x = 1 - x;
-				return 1 - ( 4 * x * x * x ) ;
+				return 1 - ( x * x * x );
+			},
+
+			'easeinout' : function( x )
+			{
+				if( x < 0.5 )
+				{
+					return ( 4 * x * x * x );
+				}
+				else
+				{
+					x = 1 - x;
+					return 1 - ( 4 * x * x * x ) ;
+				}
 			}
-		}
-	};
+		};
 
 	// Document events to bind initialisation to
 
 	_this.init_events =
-	[
-		'ready',
-		'page:load', // Turbolinks
-		'page:change' // Turbolinks
-	];
+		[
+			'ready',
+			'page:load', // Turbolinks
+			'page:change' // Turbolinks
+		];
 
 	// ----------------------------------------------------------------------------------------------------
 	// Initialisation conditions
@@ -120,7 +120,7 @@ var scrollme = ( function( $ )
 
 		// Recalculate heights & positions when page is fully loaded + a bit just in case
 
-		$window.load( function(){ setTimeout( function(){ _this.on_resize(); } , 100 ) });
+		$(document).ready( function(){ setTimeout( function(){ _this.on_resize(); } , 100 ) });
 
 		// Start animating
 
@@ -315,10 +315,10 @@ var scrollme = ( function( $ )
 				// Update properties
 
 				effect.element.css(
-				{
-					'opacity' : opacity,
-					'transform' : 'translate3d( '+translatex+'px , '+translatey+'px , '+translatez+'px ) rotateX( '+rotatex+'deg ) rotateY( '+rotatey+'deg ) rotateZ( '+rotatez+'deg ) scale3d( '+scalex+' , '+scaley+' , '+scalez+' )'
-				} );
+					{
+						'opacity' : opacity,
+						'transform' : 'translate3d( '+translatex+'px , '+translatey+'px , '+translatez+'px ) rotateX( '+rotatex+'deg ) rotateY( '+rotatey+'deg ) rotateZ( '+rotatez+'deg ) scale3d( '+scalex+' , '+scaley+' , '+scalez+' )'
+					} );
 			}
 		}
 	}
@@ -444,7 +444,7 @@ var scrollme = ( function( $ )
 	// ----------------------------------------------------------------------------------------------------
 	// Bind initialisation
 
-	$document.on( _this.init_events.join( ' ' ) , function(){ _this.init(); } );
+	$(document).ready(function(){ _this.init(); });
 
 	// ----------------------------------------------------------------------------------------------------
 
